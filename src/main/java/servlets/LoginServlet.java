@@ -84,6 +84,8 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("login.jsp");
 			}
 		}catch (Exception e) {
+			session.setAttribute("errorLogin", "Error: not connected to database");
+			response.sendRedirect("login.jsp");
 			e.printStackTrace();
 		}
 	}
