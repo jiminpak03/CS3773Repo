@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.sidebar{
+	height: 100%;
+	width: 180px;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: #C7CDC7;
+	padding-top: 30px;
+}
+
+.sidebar a{
+	display: block;
+	font-size: 19px;
+	text-decoration: none;
+	color: white;
+	padding: 10px 3px 10px 30px;
+	margin-bottom: 10px;
+}
+
+.sidebar .sidebar-tabs a:hover{
+    background-color: #b8b6aa64;
+}
+
+.sidebar .sidebar-store a{
+	font-size: 25px;
+	margin-bottom: 40px;
+}
+
+.main{
+	margin-left: 200px;
+}
