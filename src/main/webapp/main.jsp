@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Internal Portal</title>
-<link rel="stylesheet" type="text/css" href="css/main-style.css">	
+<link rel="stylesheet" type="text/css" href="css/main-style.css?v=3">	
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		</div>
 		<div class="sidebar-tabs">
 			<a href="main.jsp?view=home">Home</a>
-			<a href="main.jsp?view=products">Product Catalog</a>
+			<a href="ProductsServlet">Product Catalog</a>
 			<a href="main.jsp?view=orders">Orders</a>
 			<a href="main.jsp?view=account">Account</a>
 		</div>

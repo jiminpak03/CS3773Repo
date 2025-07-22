@@ -12,6 +12,6 @@
 	%>
 	
 	<h2>HOME PAGE</h2>
-	<h4>Welcome back, <%=employeeName %></h4>
+	<h3>Welcome back, <%=employeeName %></h3>
 </body>
 </html>

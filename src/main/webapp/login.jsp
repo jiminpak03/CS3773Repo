@@ -30,11 +30,11 @@
 	    	<h2 class="mb-3">LOGIN</h2>
 	    	<div class="mb-3">
 		    	<label for="username" class="form-label">Username:</label>
-		    	<input type="text" id="username" name="username" class="form-input" required>
+		    	<input type="text" id="username" name="username" class="form-input" required><br><br>
 	    	</div>
 	    	<div class="mb-3">
 		    	<label for="password" class="form-label">Password:</label>
-		    	<input type="text" id="password" name="password" class="form-input" required>
+		    	<input type="password" id="password" name="password" class="form-input" required><br><br>
 	    	</div>
 	    	<button class="btn-login" type="submit">Login</button>
 	    </form>

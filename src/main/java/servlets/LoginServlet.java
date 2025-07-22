@@ -76,11 +76,14 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("username", username);		
 				session.setAttribute("name", firstName + " " + lastName);
 				session.setAttribute("email", email);
+				
+				pst.close();
+				con.close();
 				response.sendRedirect("main.jsp");
 			}
 			//else an error message gets displayed
 			else {
-				session.setAttribute("errorLogin", "Incorrect username or password");
+				session.setAttribute("errorLogin", "Invalid username or password");
 				response.sendRedirect("login.jsp");
 			}
 		}catch (Exception e) {
