@@ -21,6 +21,21 @@ CREATE TABLE product (
     image VARCHAR(255) NULL
 );
 
+CREATE TABLE orders (
+	order_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    order_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    order_price DOUBLE(7,2) NOT NULL,
+	customer_lastname VARCHAR(30) NOT NULL,
+    customer_firstname VARCHAR(30) NOT NULL,
+    assigned_employee BIGINT,
+	FOREIGN KEY (assigned_employee) REFERENCES employee(employee_id),
+    execution_status ENUM('Pending', 'In Progress', 'Completed', 'Cancelled') NOT NULL
+);
+
+INSERT INTO orders (order_id, order_time, order_price, customer_lastname, customer_firstname, assigned_employee, execution_status)
+VALUES
+	(253116, '2025-07-20 12:30:00', 145.63, 'Rose', 'Alexis', 39256, 'Pending');
+    
 INSERT INTO employee (employee_id, last_name, first_name, email, username, user_password, is_manager)
 VALUES
     (10673, 'Admin', 'Manager', 'admin.admin@gmail.com', 'admin123', 'admin', TRUE),
