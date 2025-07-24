@@ -42,6 +42,12 @@ public class ImageServlet extends HttpServlet {
 			
 			//outputs image
 			if(rs.next()) {
+				//changes made by js - image from blob to vchar
+				String imagePath = rs.getString("image");
+	            if(imagePath != null && !imagePath.isEmpty()) {
+	                response.sendRedirect(imagePath);
+	            }
+				/*
 				byte[] img = rs.getBlob("image").getBytes(1, (int) rs.getBlob("image").length());
 				response.setContentType("image/jpeg");
 				OutputStream os = response.getOutputStream();
@@ -49,8 +55,10 @@ public class ImageServlet extends HttpServlet {
 				os.write(img);
 				os.flush();
 				os.close();
+				*/
 			}
 			pst.close();
+			con.close();
 		}catch(Exception e) {
 			System.out.println("ERROR: ImageServlet doGet: Faiure to retrieve images from data base");
 		}

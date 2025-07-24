@@ -93,7 +93,9 @@ public class ProductsServlet extends HttpServlet {
 					if(desc == null) {
 						desc = "";
 					}
-					image = "image";
+					
+					image = rs.getString("image"); //this will get path to image from database
+					//image = "image";
 					
 					String p[] = {id, name, price, quant, sale, desc, image};
 					products.add(p);
@@ -162,7 +164,11 @@ public class ProductsServlet extends HttpServlet {
 							sale = "";
 						}
 						desc = rs.getString("product_description");
-						image = "has image";
+						
+						//image = "has image";
+						image = rs.getString("image");
+						//js
+						
 						String p[] = {id, name, price, quant, sale, desc, image};
 						products.add(p);
 					}
@@ -234,6 +240,8 @@ public class ProductsServlet extends HttpServlet {
 			String sale = request.getParameter("productSale").trim();
 			String desc = request.getParameter("productDesc").trim();
 			Part image = request.getPart("productImage"); 
+		
+			String imagePath = ""; //js
 			
 			try {
 				//connects to database
