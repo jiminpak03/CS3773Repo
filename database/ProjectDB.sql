@@ -43,6 +43,9 @@ CREATE TABLE IF NOT EXISTS order_items (
 );
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
+(253115, 4131, 3, 1.99),
+(253115, 111234, 1, 3.49),
+(253115, 111567, 1, 3.79),
 (253116, 4131, 5, 1.99), 
 (253116, 111234, 2, 3.49),
 (253116, 111567, 3, 3.79), 
@@ -50,6 +53,7 @@ INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
 
 INSERT INTO orders (order_id, order_time, order_price, customer_lastname, customer_firstname, assigned_employee, execution_status)
 VALUES
+	(253115, '2025-07-22 4:13:00', 13.25, 'Adams', 'Lisa', 39256, 'In Progress'),
 	(253116, '2025-07-20 12:30:00', 145.63, 'Rose', 'Alexis', 39256, 'Pending');
     
 INSERT INTO employee (employee_id, last_name, first_name, email, username, user_password, is_manager)
