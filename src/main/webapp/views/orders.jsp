@@ -139,7 +139,6 @@ if(list != null && list.size() > 0){
                 <div class="popup-inputs">
                     <div class="status-options">
                         <label><input type="radio" name="newStatus" value="Pending"> Pending</label><br>
-                        <label><input type="radio" name="newStatus" value="Processing"> Processing</label><br>
                         <label><input type="radio" name="newStatus" value="Completed"> Completed</label><br>
                         <label><input type="radio" name="newStatus" value="Cancelled"> Cancelled</label><br>
                     </div>
