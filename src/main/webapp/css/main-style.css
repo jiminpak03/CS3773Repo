@@ -51,6 +51,10 @@
     color: white;
 }
 
+.light {
+	color: black;
+}
+
 .btn.green {
     background-color: #27ae60;
 }

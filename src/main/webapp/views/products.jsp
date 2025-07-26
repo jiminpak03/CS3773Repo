@@ -46,7 +46,7 @@
 	
 	<%-- Add a new product --%>
 	<form class="catalog" method="post" action="ProductsServlet" enctype="multipart/form-data">
-		<button class="btn" id="btn-add" type="button" onclick="openPopupAdd()">Add Product</button><br><br>
+		<button class="btn light" id="btn-add" type="button" onclick="openPopupAdd()">Add Product</button><br><br>
 		<div class="overlay" id="overlay">
 			<div class="popup-container" id="popup-container">
 				<div class="popup-content">
@@ -85,8 +85,8 @@
 						</div>
 					</div>
 					<div class="bottom">
-						<button class="btn" name="btn-add-confirm" type="submit">Add</button>
-						<button class="btn" name="btn-cancel" type="button" onclick="closePopupAdd()">Cancel</button>
+						<button class="btn light" name="btn-add-confirm" type="submit">Add</button>
+						<button class="btn light" name="btn-cancel" type="button" onclick="closePopupAdd()">Cancel</button>
 					</div>
 				</div>
 			</div>
