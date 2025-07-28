@@ -37,7 +37,10 @@ This application streamlines in-store operations by providing a centralized port
 1. Download or Clone the repo for our Grocery Store Management Web Application (https://github.com/jiminpak03/CS3773Repo.git)
 2. Import into Eclipse
 3. Set up **Apache Tomcat 11 Server** and add the project to Tomcat
-4. Start **MySQL Server** and execute the schema.sql file to create the database and insert test data
+4. Start **MySQL Server** and execute the ProjectDB.sql file to create the database and insert test data
+   - Make sure to upload the database into the correct MySQL connection:
+     * Connection Hostname: 'localhost' and Port: '3306'
+     * Set Username: 'root' and Password: 'admin'
 5. Deploy and run the web application on Tomcat
 6. Visit: http://localhost:8080/CS3773Repo
    * Login:
