@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Message Styling */
+.message {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.searchOrder {
+    font-size: 16px;
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.searchOrder:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.sort-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sort-form label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#sort-select {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+}
+
+/* Button Styling */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.search-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.search-btn:hover {
+    background-color: #2980b9;
+}
+
+.execute-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.execute-btn:hover {
+    background-color: #229954;
+}
+
+.status-btn {
+    background-color: #f39c12;
+    color: white;
+}
+
+.status-btn:hover {
+    background-color: #e67e22;
+}
+
+.details-btn {
+    background-color: #9b59b6;
+    color: white;
+}
+
+.details-btn:hover {
+    background-color: #8e44ad;
+}
+
+.confirm-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+}
+
+.cancel-btn {
+    background-color: #95a5a6;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* List Container */
+.list-container {
+    background-color: #EAEAEA;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.list-item {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.order-id-info {
+    min-width: 100px;
+}
+
+.order-id-info h4 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 18px;
+}
+
+.customer-info {
+    min-width: 200px;
+    flex-grow: 1;
+}
+
+.customer-info h4 {
+    color: #34495e;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.customer-info p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.price-info {
+    min-width: 100px;
+    text-align: center;
+}
+
+.price-info h3 {
+    color: #27ae60;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.status-info {
+    min-width: 150px;
+}
+
+.status-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.status-info p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Status Color Coding */
+.status-pending {
+    color: #f39c12;
+}
+
+.status-in-progress {
+    color: #3498db;
+}
+
+.status-completed {
+    color: #27ae60;
+}
+
+.status-cancelled {
+    color: #e74c3c;
+}
+
+.action-info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 200px;
+}
+
+.action-info form {
+    margin: 0;
+}
+
+/* No Orders Message */
+.no-orders {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+.no-orders h3 {
+    color: #95a5a6;
+    margin-bottom: 10px;
+}
+
+/* Popup Overlay */
+.overlay {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.popup-container {
+    background-color: white;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+
+.popup-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.popup-content h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.popup-inputs {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.status-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.status-options label:hover {
+    background-color: #f8f9fa;
+}
+
+.status-options input[type="radio"] {
+    margin: 0;
+    transform: scale(1.2);
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .search-form, .sort-form {
+        justify-content: center;
+    }
+    
+    .searchOrder {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .item-info {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .action-info {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .popup-container {
+        width: 95%;
+        margin: 20px;
+    }
+}
