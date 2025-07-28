@@ -15,6 +15,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -93,9 +97,8 @@ public class ProductsServlet extends HttpServlet {
 					if(desc == null) {
 						desc = "";
 					}
-					
 					image = rs.getString("image"); //this will get path to image from database
-					//image = "image";
+					
 					
 					String p[] = {id, name, price, quant, sale, desc, image};
 					products.add(p);
@@ -239,9 +242,7 @@ public class ProductsServlet extends HttpServlet {
 			String quant = request.getParameter("productQuant").trim();
 			String sale = request.getParameter("productSale").trim();
 			String desc = request.getParameter("productDesc").trim();
-			Part image = request.getPart("productImage"); 
-		
-			String imagePath = ""; //js
+			Part imagePart = request.getPart("productImage"); 
 			
 			try {
 				//connects to database
@@ -249,10 +250,18 @@ public class ProductsServlet extends HttpServlet {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/grocery_store", "root", "admin");
 				
+				//upload image to images folder
+				String fileName = imagePart.getSubmittedFileName();
+				String fullPath = request.getServletContext().getRealPath("/images");
+				File images = new File(fullPath);
+				String imageFullPath = fullPath + File.separator + fileName;
+				imagePart.write(imageFullPath);
+
+				String imagePath = ("images/"+fileName); //name that goes into mySql database
+				System.out.println("image saved to 'images' folder");
+		
+				//insert product into database based on input
 				PreparedStatement pst = con.prepareStatement("INSERT INTO product(product_id, product_name, price, quantity, sale, product_description, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
-				InputStream is = image.getInputStream();
-			
-				//insert product based on input
 				pst.setInt(1, 0);
 				pst.setString(2, name);
 				pst.setDouble(3, Double.valueOf(price));
@@ -264,11 +273,11 @@ public class ProductsServlet extends HttpServlet {
 					pst.setInt(5, 0);
 				}
 				pst.setString(6, desc);
-				pst.setBlob(7,is);
+				pst.setString(7,imagePath);
+				System.out.println("added image path: " + imagePath + " to sql");
 
 				pst.executeUpdate();
 				pst.close();
-				is.close();
 				con.close();
 				
 				System.out.println("Successfully added a new product\n\n");
@@ -367,23 +376,30 @@ public class ProductsServlet extends HttpServlet {
 				}
 			
 				//edit image
-				Part image = request.getPart("changeProductImage");
-				if (image != null && image.getSize() > 0) {
+				Part imagePart = request.getPart("changeProductImage");
+				if (imagePart != null && imagePart.getSize() > 0) {
 					System.out.println("\tupdating the image...");
 					try {
-						//connects to database
 						System.out.println("connecting to database..");
-						PreparedStatement pst = con.prepareStatement("UPDATE product SET image=? WHERE product_id = ?");
-						InputStream is = image.getInputStream();
+						
+						//upload image to images folder
+						String fileName = imagePart.getSubmittedFileName();
+						String fullPath = request.getServletContext().getRealPath("/images");
+						File images = new File(fullPath);
+						String imageFullPath = fullPath + File.separator + fileName;
+						imagePart.write(imageFullPath);
+
+						String imagePath = ("images/"+fileName); //name that goes into mySql database
+						System.out.println("image saved to 'images' folder");
 	
 						//insert product based on input
-						pst.setBlob(1, is);
+						PreparedStatement pst = con.prepareStatement("UPDATE product SET image=? WHERE product_id = ?");
+						pst.setString(1, imagePath);
 						pst.setInt(2,productId);
 
 						pst.executeUpdate();
 						System.out.println("\tsucessfully updated image\n");
 						pst.close();
-						is.close();
 					}catch(Exception e) {
 						System.out.println("ERROR in ProductsServlet doPost: unable change the image\n");
 						session.setAttribute("errorProducts", "Error in changing product image (make sure image is a jpg)");
