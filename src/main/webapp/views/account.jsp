@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Account</title>
+<link rel="stylesheet" href="css/account-style.css">
 </head>
 <body>
 	<%-- gets user information --%>
@@ -15,18 +16,23 @@
 		String employeeEmail = (String) session.getAttribute("email");
 	%>
 	
-	<h2>ACCOUNT PAGE</h2>
-	
-	<div class="user-info">
-		<h4>Employee ID: <%=employeeId %></h4>
-		<h4>Employee name: <%=employeeName %></h4>
-		<h4>Username: <%=username %></h4>
-		<h4>Email: <%=employeeEmail %></h4>
+	<h1>My Account</h1>
+	<div class="body">
+		<div class="user">
+			<div class="user-info">
+				<img src="images/user-icon.jpg" class="user-icon">
+				<div class="user-contact">
+					<h4>Employee ID: <%=employeeId %></h4>
+					<h4>Employee name: <%=employeeName %></h4>
+					<h4>Username: <%=username %></h4>
+					<h4>Email: <%=employeeEmail %></h4><br><br>
+				</div>
+			</div>
+			<form class="btn-logout" method="post" action="LogoutServlet">
+				<button class="btn light" type="submit">Logout</button>
+			</form>
+		</div>
 	</div>
-	
-	<form class="btn-logout" method="post" action="LogoutServlet">
-		<button type="submit">Logout</button>
-	</form>
 	
 </body>
 </html>

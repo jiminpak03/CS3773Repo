@@ -41,6 +41,25 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
+    
+INSERT INTO employee (employee_id, last_name, first_name, email, username, user_password, is_manager)
+VALUES
+    (10673, 'Admin', 'Manager', 'admin.admin@gmail.com', 'admin123', 'admin', TRUE),
+    (39256, 'Smith', 'John', 'john.smith@gmail.com', 'John123', 'password', FALSE);
+
+INSERT INTO product (product_id, product_name, price, quantity, sale, product_description, image)
+VALUES
+    (4131, 'Apples', 1.99, 100, NULL, 'Fresh red apples from local farms. Fruits', 'images/apple.jpg'),
+    (4011, 'Bananas', 0.79, 200, NULL, 'Organic bananas, sold by the bunch. Fruits', 'images/banana.jpg'),
+    (4664, 'Tomato', 0.85, 78, NULL, 'Tomatoes, sold per item. Fruits', 'images/tomato.jpg'),
+    (3082, 'Broccoli', 0.89, 150, NULL, 'Broccoli crowns, sold per pound. Vegetable', 'images/broccoli.jpg'),
+    (111234, 'Milk', 3.49, 167, 10, '2% Reduced Fat Milk, 1 gallon. Dairy', 'images/milk.jpg'),
+    (111567, 'Bread', 3.79, 143, NULL, 'Whole wheat sandwich bread. Grain', 'images/bread.jpg');
+    
+INSERT INTO orders (order_id, order_time, order_price, customer_lastname, customer_firstname, assigned_employee, execution_status)
+VALUES
+	(253115, '2025-07-22 4:13:00', 13.25, 'Adams', 'Lisa', 39256, 'In Progress'),
+	(253116, '2025-07-20 12:30:00', 145.63, 'Rose', 'Alexis', 39256, 'Pending');
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
 (253115, 4131, 3, 1.99),
@@ -50,22 +69,3 @@ INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
 (253116, 111234, 2, 3.49),
 (253116, 111567, 3, 3.79), 
 (253116, 4664, 10, 0.85); 
-
-INSERT INTO orders (order_id, order_time, order_price, customer_lastname, customer_firstname, assigned_employee, execution_status)
-VALUES
-	(253115, '2025-07-22 4:13:00', 13.25, 'Adams', 'Lisa', 39256, 'In Progress'),
-	(253116, '2025-07-20 12:30:00', 145.63, 'Rose', 'Alexis', 39256, 'Pending');
-    
-INSERT INTO employee (employee_id, last_name, first_name, email, username, user_password, is_manager)
-VALUES
-    (10673, 'Admin', 'Manager', 'admin.admin@gmail.com', 'admin123', 'admin', TRUE),
-    (39256, 'Smith', 'John', 'john.smith@gmail.com', 'John123', 'password', FALSE);
-
-INSERT INTO product (product_id, product_name, price, quantity, sale, product_description, image)
-VALUES
-    (4131, 'Apples', 1.99, 100, NULL, 'Fresh red apples from local farms.', 'images/apple.jpg'),
-    (4011, 'Bananas', 0.79, 200, NULL, 'Organic bananas, sold by the bunch.', 'images/banana.jpg'),
-    (4664, 'Tomato', 0.85, 78, NULL, 'Tomatoes, sold per item.', 'images/tomato.jpg'),
-    (3082, 'Broccoli', 0.89, 150, NULL, 'Broccoli crowns, sold per pound.', 'images/broccoli.jpg'),
-    (111234, 'Milk', 3.49, 167, 10, '2% Reduced Fat Milk, 1 gallon.', 'images/milk.jpg'),
-    (111567, 'Bread', 3.79, 143, NULL, 'Whole wheat sandwich bread.', 'images/bread.jpg');

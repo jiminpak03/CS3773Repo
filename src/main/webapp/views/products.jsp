@@ -11,10 +11,10 @@
 
 </head>
 <body>
-	<h2>PRODUCT CATALOG</h2>
+	<h1>Product Catalog</h1>
 	<%-- Browse --%>
-	<div class="type">
 	<form class="browse-catalog" method="post" action="ProductsServlet">
+	<div class="search">
 			<%-- Browse by Search bar --%>
 			<%  
 				String searchText = (String) session.getAttribute("search");
@@ -24,8 +24,9 @@
 					searchText = "";
 				}
 			%>
-			<input type="text" name="searchProduct" class="searchProduct" <%= "".equals(searchText) ? "placeholder" : "value"%>="<%=text%>">
-	
+			<div class="search-bar">
+				<input type="text" name="searchProduct" class="searchProduct" <%= "".equals(searchText) ? "placeholder" : "value"%>="<%=text%>">
+			</div>
 			<%-- Browse by Sort --%>
 			<%  
 				String selectedOpt = (String) session.getAttribute("sort");
@@ -33,16 +34,19 @@
 					selectedOpt = "default";
 				} 
 			%>
-			<select name="btn-sort" class="sortProduct" onchange="this.form.submit()">
-				<option value="default" <%= selectedOpt.equals("default") ? "selected" : ""%>>Sort By...</option>
-				<option value="price1" <%= selectedOpt.equals("price1") ? "selected" : ""%>>Price Low to High</option>
-				<option value="price2" <%= selectedOpt.equals("price2") ? "selected" : ""%>>Price High to Low</option>
-				<option value="available1" <%= selectedOpt.equals("available1") ? "selected" : ""%>>Availability Low to High</option>
-				<option value="available2" <%= selectedOpt.equals("available2") ? "selected" : ""%>>Availability High to low</option>
-			</select>
+			<div class="sort">
+				<label class="sort-label">Sort by:  </label>
+				<select name="btn-sort" class="sortProduct" onchange="this.form.submit()">
+					<option value="default" <%= selectedOpt.equals("default") ? "selected" : ""%>>Sort By...</option>
+					<option value="price1" <%= selectedOpt.equals("price1") ? "selected" : ""%>>Price Low to High</option>
+					<option value="price2" <%= selectedOpt.equals("price2") ? "selected" : ""%>>Price High to Low</option>
+					<option value="available1" <%= selectedOpt.equals("available1") ? "selected" : ""%>>Availability Low to High</option>
+					<option value="available2" <%= selectedOpt.equals("available2") ? "selected" : ""%>>Availability High to low</option>
+				</select>
+			</div>
 		<br><br>
-	</form>
 	</div>
+	</form>
 	
 	<%-- Add a new product --%>
 	<form class="catalog" method="post" action="ProductsServlet" enctype="multipart/form-data">
@@ -85,8 +89,8 @@
 						</div>
 					</div>
 					<div class="bottom">
-						<button class="btn light" name="btn-add-confirm" type="submit">Add</button>
-						<button class="btn light" name="btn-cancel" type="button" onclick="closePopupAdd()">Cancel</button>
+						<button class="btn light" id="btn-add-confirm" name="btn-add-confirm" type="submit">Confirm</button>
+						<button class="btn light" id="btn-cancel" name="btn-cancel" type="button" onclick="closePopupAdd()">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -141,10 +145,10 @@
 					<div class="alter-info" id="alter-btns">
 						<%-- Edit button --%>
 						<input type="hidden" value="<%= i %>" name="index">
-						<button class="btn" name="btn-edit" type="button" onclick="openPopupEdit(<%=i%>)">Edit</button>
+						<button class="btn light" id="btn-edit" name="btn-edit" type="button" onclick="openPopupEdit(<%=i%>)">Edit</button>
 						<%-- Delete button --%>
 						<input type="hidden" value="<%= i %>" name="index">
-						<button class="btn" name="btn-delete" type="submit">Delete</button>
+						<button class="btn light" id="btn-delete" name="btn-delete" type="submit">Delete</button>
 					</div>
 				</div>
 				
@@ -186,8 +190,8 @@
 									</div>
 								</div>
 								<div class="bottom">
-									<button class="btn" name="btn-edit-confirm" type="submit" >Confirm</button>
-									<button class="btn" name="btn-cancel" type="button" onclick="closePopupEdit(<%=i%>); closeUploadButton(<%=i%>);" >Cancel</button>
+									<button class="btn light" id="btn-edit-confirm" name="btn-edit-confirm" type="submit" >Confirm</button>
+									<button class="btn light" id="btn-cancel" name="btn-cancel" type="button" onclick="closePopupEdit(<%=i%>); closeUploadButton(<%=i%>);" >Cancel</button>
 								</div>
 							</div>
 						</div>

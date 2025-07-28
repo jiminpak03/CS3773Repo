@@ -21,7 +21,7 @@
 	<%-- Side-bar navigation menu--%>
 	<div class="sidebar">
 		<div class="sidebar-store">
-			<a href="main.jsp?view=default">Store Name</a>
+			<a href="main.jsp?view=default" style="font-family:'cursive', Pacifico;">Fresh Finds</a>
 		</div>
 		<div class="sidebar-tabs">
 			<a href="main.jsp?view=home">Home</a>

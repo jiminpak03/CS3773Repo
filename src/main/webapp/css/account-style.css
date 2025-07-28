@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+.user{
+	display:flex;
+	padding: 15px;
+	align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-info{
+    justify-content: space-between;
+	align-items: center;
+    flex-direction: row;
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.user-icon{
+	display: flex;
+    align-items: center;
+	width: 220px;
+	height: 215px;
+	border-radius: 10px;
+}
+
+.user-contact{
+	align-content: center;
+	margin-left: 50px;
+	flex-direction: column;
+	display: flex;
+	margin-top: 25px;
+}
+
+.btn-logout{
+	margin-top: auto;
+	align-self: flex-end; 
+}
+
+.btn.light{
+	padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #FF6961;
+    color: white;
+}
