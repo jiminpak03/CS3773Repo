@@ -51,10 +51,25 @@ This application streamlines in-store operations by providing a centralized port
 ## Usage
 ### Once running:
 - Use the sidebar to navigate between **Home**, **Product Catalog**, **Orders**, and **Account** views.
+  <div align="center">
+  <img src="CS3773Repo/home.png"/>
+  </div>
+  
 - In **Product Catalog**, you can view available items, search by name, and add/edit/delete.
   * you can edit the product name, quantity, description, price, and sale percentage.
+  <div align="center">
+  <img src="CS3773Repo/catalog.png"/>
+  </div>
+  
 - In **Orders**, you can view customer orders, Execute Order to complete it, Update the Status of the order, and view more details.
+  <div align="center">
+  <img src="CS3773Repo/orders.png"/>
+  </div>
+  
 - The **Account** page displays the currently logged in user's profile info, and logout of the account.
+  <div align="center">
+  <img src="CS3773Repo/account.png"/>
+  </div>
     
   
 
